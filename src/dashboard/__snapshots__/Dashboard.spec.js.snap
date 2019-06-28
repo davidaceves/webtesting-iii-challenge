@@ -21,6 +21,7 @@ Array [
   >
     <button
       className="toggle-btn"
+      data-testid="toggleLock"
       disabled={true}
       onClick={[Function]}
     >
@@ -28,6 +29,7 @@ Array [
     </button>
     <button
       className="toggle-btn"
+      data-testid="toggleClosed"
       disabled={false}
       onClick={[Function]}
     >
@@ -35,4 +37,41 @@ Array [
     </button>
   </div>,
 ]
+`;
+
+exports[`defaults renders controls and display 1`] = `
+<div
+  className="controls panel"
+>
+  <button
+    className="toggle-btn"
+    data-testid="toggleLock"
+    disabled={true}
+  >
+    Lock Gate
+  </button>
+  <button
+    className="toggle-btn"
+    data-testid="toggleClosed"
+  >
+    Close Gate
+  </button>
+</div>
+`;
+
+exports[`defaults renders controls and display 2`] = `
+<div
+  className="display panel"
+>
+  <div
+    className="led green-led"
+  >
+    Unlocked
+  </div>
+  <div
+    className="led green-led"
+  >
+    Open
+  </div>
+</div>
 `;

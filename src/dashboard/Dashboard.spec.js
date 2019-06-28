@@ -6,12 +6,10 @@ import Dashboard from "./Dashboard.js";
 import Display from "../display/Display.js";
 import Controls from "../controls/Controls.js";
 
-import { fireEvent } from "react-testing-library";
-
 afterEach(rtl.cleanup);
 
 describe("<Dashboard />", () => {
-  xit("matches snapshot", () => {
+  it("matches snapshot", () => {
     const tree = renderer.create(<Dashboard />);
 
     expect(tree.toJSON()).toMatchSnapshot();
@@ -19,7 +17,7 @@ describe("<Dashboard />", () => {
 });
 
 describe("defaults", () => {
-  xit("defaults to unlocked and open", () => {
+  it("defaults to unlocked and open", () => {
     rtl.render(<Dashboard />).getByText(/unlocked/i);
     rtl.render(<Dashboard />).getByText(/open/i);
   });
@@ -29,5 +27,13 @@ describe("defaults", () => {
     const button = condition.getByTestId("toggleClosed");
 
     expect(button.disabled).toBe(true);
+  });
+
+  it("renders controls and display", () => {
+    const renderedControls = renderer.create(<Controls />);
+    const renderedDisplay = renderer.create(<Display />);
+
+    expect(renderedControls.toJSON()).toMatchSnapshot();
+    expect(renderedDisplay.toJSON()).toMatchSnapshot();
   });
 });
