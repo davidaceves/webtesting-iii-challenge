@@ -1,13 +1,11 @@
-import React from 'react';
-import * as rtl from 'react-testing-library'
-import renderer from 'react-test-renderer'
+import React from "react";
+import * as rtl from "react-testing-library";
+import renderer from "react-test-renderer";
 
-import Dashboard from './Dashboard.js';
-import Display from '../display/Display.js';
-import Controls from '../controls/Controls.js';
+import Dashboard from "./Dashboard.js";
+import Display from "../display/Display.js";
+import Controls from "../controls/Controls.js";
 
-afterEach(rtl.cleanup)
+afterEach(rtl.cleanup);
 
-describe('<Display />', () => {
-
-})
+describe("<Display />", () => {});
