@@ -9,5 +9,9 @@ import Controls from '../controls/Controls.js';
 afterEach(rtl.cleanup)
 
 describe('<Dashboard />', () => {
-
+    it('matches snapshot', () => {
+        const tree = renderer.create(<Dashboard />)
+        
+        expect(tree.toJSON()).toMatchSnapshot();
+    })
 })
