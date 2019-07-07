@@ -1,11 +1,27 @@
 import React from "react";
-import * as rtl from "react-testing-library";
 import renderer from "react-test-renderer";
+import "jest-dom/extend-expect";
+import { render, fireEvent } from "@testing-library/react";
+import "@testing-library/react/cleanup-after-each";
 
-import Dashboard from "./Dashboard.js";
-import Display from "../display/Display.js";
+import Display from "./Display.js";
 import Controls from "../controls/Controls.js";
+import Dashboard from "../dashboard/Dashboard.js";
 
-afterEach(rtl.cleanup);
+describe("<Display />", () => {
+  it("displays if gate is open/closed", () => {
+    const { getByTestId } = render(<Dashboard />);
 
-describe("<Display />", () => {});
+    const gate = getByTestId("closed_open");
+
+    const buttonToggle = getByTestId(/toggleClosed/i);
+
+    fireEvent.click(buttonToggle);
+
+    expect(gate).toHaveTextContent(/Closed/i);
+
+    fireEvent.click(buttonToggle);
+
+    expect(gate).toHaveTextContent(/Open/i);
+  });
+});
