@@ -24,4 +24,20 @@ describe("<Display />", () => {
 
     expect(gate).toHaveTextContent(/Open/i);
   });
+
+  it("displays 'Closed' if the `closed` prop is `true`", () => {
+    const { getByTestId } = render(<Display closed={true} />);
+
+    const gate = getByTestId("closed_open");
+
+    expect(gate).toHaveTextContent(/Closed/i);
+  });
+
+  it("displays 'Open' if the `closed` prop is `false`", () => {
+    const { getByTestId } = render(<Display closed={false} />);
+
+    const gate = getByTestId("closed_open");
+
+    expect(gate).toHaveTextContent(/Open/i);
+  });
 });
