@@ -10,7 +10,7 @@ import Dashboard from "../dashboard/Dashboard.js";
 
 // displays if gate is open/closed and if it is locked/unlocked DONE
 // displays 'Closed' if the closed prop is true and 'Open' if otherwise DONE
-// displays 'Locked' if the locked prop is true and 'Unlocked' if otherwise
+// displays 'Locked' if the locked prop is true and 'Unlocked' if otherwise DONE
 // when locked or closed use the red-led class
 // when unlocked or open use the green-led class
 
@@ -61,5 +61,25 @@ describe("<Display />", () => {
     const gate = getByTestId("locked_unlocked");
 
     expect(gate).toHaveTextContent(/Unlocked/i);
+  });
+
+  it("displays a red-led when locked or closed", () => {
+    const { getByTestId } = render(<Display locked={true} closed={true} />);
+
+    const locked_gate = getByTestId("locked_unlocked");
+    const closed_gate = getByTestId("closed_open");
+
+    expect(locked_gate).toHaveClass(`red-led`);
+    expect(closed_gate).toHaveClass(`red-led`);
+  });
+
+  it("displays a green-led when unlocked or opened", () => {
+    const { getByTestId } = render(<Display locked={false} closed={false} />);
+
+    const unlocked_gate = getByTestId("locked_unlocked");
+    const open_gate = getByTestId("closed_open");
+
+    expect(unlocked_gate).toHaveClass(`green-led`);
+    expect(open_gate).toHaveClass(`green-led`);
   });
 });
