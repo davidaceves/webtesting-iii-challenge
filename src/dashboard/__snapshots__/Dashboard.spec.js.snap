@@ -1,0 +1,81 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Dashboard /> matches snapshot 1`] = `
+Array [
+  <div
+    className="display panel"
+  >
+    <div
+      className="led green-led"
+      data-testid="locked_unlocked"
+    >
+      Unlocked
+    </div>
+    <div
+      className="led green-led"
+      data-testid="closed_open"
+    >
+      Open
+    </div>
+  </div>,
+  <div
+    className="controls panel"
+  >
+    <button
+      className="toggle-btn"
+      data-testid="toggleLock"
+      disabled={true}
+      onClick={[Function]}
+    >
+      Lock Gate
+    </button>
+    <button
+      className="toggle-btn"
+      data-testid="toggleClosed"
+      disabled={false}
+      onClick={[Function]}
+    >
+      Close Gate
+    </button>
+  </div>,
+]
+`;
+
+exports[`defaults renders controls and display 1`] = `
+<div
+  className="controls panel"
+>
+  <button
+    className="toggle-btn"
+    data-testid="toggleLock"
+    disabled={true}
+  >
+    Lock Gate
+  </button>
+  <button
+    className="toggle-btn"
+    data-testid="toggleClosed"
+  >
+    Close Gate
+  </button>
+</div>
+`;
+
+exports[`defaults renders controls and display 2`] = `
+<div
+  className="display panel"
+>
+  <div
+    className="led green-led"
+    data-testid="locked_unlocked"
+  >
+    Unlocked
+  </div>
+  <div
+    className="led green-led"
+    data-testid="closed_open"
+  >
+    Open
+  </div>
+</div>
+`;
